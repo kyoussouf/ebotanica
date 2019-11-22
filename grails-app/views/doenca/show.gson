@@ -1,0 +1,7 @@
+import rony.ebotanica.Doenca
+
+model {
+	Doenca doenca
+}
+
+json tmpl.doenca(doenca)

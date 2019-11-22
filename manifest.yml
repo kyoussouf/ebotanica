@@ -1,0 +1,7 @@
+---
+applications:
+  - name: ebotanica
+    memory: 1G
+    instances: 1
+    path: build/libs/ebotanica.war
+    buildpack: java_buildpack

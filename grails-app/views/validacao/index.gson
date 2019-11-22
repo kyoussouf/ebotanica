@@ -1,0 +1,8 @@
+import rony.ebotanica.Validacao
+
+model {
+	Iterable<Validacao> validacaoList
+}
+
+json tmpl.validacao(validacaoList ?: [])
+

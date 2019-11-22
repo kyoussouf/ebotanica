@@ -1,0 +1,7 @@
+import rony.ebotanica.lk.geo.Provincia
+
+model {
+	Provincia provincia
+}
+
+json tmpl.provincia(provincia)

@@ -1,0 +1,7 @@
+import rony.ebotanica.lk.FaixaEtaria
+
+model {
+	FaixaEtaria faixaEtaria
+}
+
+json tmpl.faixaEtaria(faixaEtaria)

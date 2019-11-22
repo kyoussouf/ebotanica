@@ -1,0 +1,7 @@
+import rony.ebotanica.lk.Via
+
+model {
+	Via via
+}
+
+json g.render(via, [resolveTemplate: false])

@@ -1,0 +1,8 @@
+import rony.ebotanica.lk.PartePlanta
+
+model {
+	Iterable<PartePlanta> partePlantaList
+}
+
+json tmpl.partePlanta(partePlantaList ?: [])
+

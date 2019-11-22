@@ -1,0 +1,931 @@
+swagger: '2.0'
+info:
+  title: 'Ebotanica API'
+  version: '0.1'
+  description: 'EBotanica API'
+  termsOfService: 'http://rony.ebotanica.terms'
+  contact:
+    name: 'Manuel Domingos'
+    email: rony@ips.co.mz
+externalDocs:
+  description: 'Encontre mais sobre a Api em site da IST'
+  url: 'http://ist.co.mz'
+host: www.ebotanica.co.mz
+basePath: /
+schemes:
+  - http
+tags:
+  - name: planta
+    description: Plantas
+  - name: doenca
+    description: Doencas
+  - name: validacao
+    description: Validacoes sobre o uso das plantas
+  - name: tratamento
+    description: tratamentos possiveis com as plantas
+  - name: localizacao
+    description: localizacoes das plantas
+  - name: faixaEtaria
+    description: faixa etaria a que se aplica a utilizacao
+  - name: via
+    description: vias de uso da planta
+paths:
+  '/planta"':
+    get:
+      tags:
+        - planta
+      summary: Listagem de plantas existentes
+      description: Listagem de plantas existentes
+      operationId: listagemPlantas
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Planta'
+  '/planta/{id}/':
+    get:
+      tags:
+        - planta
+      summary: Ver detalhes de planta
+      description: ''
+      operationId: verPlanta
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da planta
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/Planta'
+  /planta:
+    post:
+      tags:
+        - planta
+      summary: Adiciona nova planta
+      description: ''
+      operationId: addPlanta
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Planta que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/Planta'
+      responses:
+        '200':
+          description: sucesso! Nova Planta 
+          schema:
+            $ref: '#/definitions/Planta'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - planta
+      summary: Actualiza uma planta existente
+      description: ''
+      operationId: actualizarPlanta
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Planta que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/Planta'
+      responses:
+        '200':
+          description: sucesso! Planta Actualizada
+          schema:
+            $ref: '#/definitions/Planta'
+        '400':
+          description: Id invalido
+        '404':
+          description: Planta nao encontrada
+        '405':
+          description: Erro de Validacao
+  '/doenca"':
+    get:
+      tags:
+        - doenca
+      summary: Listagem de doencas existentes
+      description: Listagem de doencas existentes
+      operationId: listagemdoencas
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          #schema:
+            #$ref: '#/definitions/doenca'
+  '/doenca/{id}/':
+    get:
+      tags:
+        - doenca
+      summary: Ver detalhes de doenca
+      description: ''
+      operationId: verdoenca
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da doenca
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/Doenca'
+  /doenca:
+    post:
+      tags:
+        - doenca
+      summary: Adiciona nova doenca
+      description: ''
+      operationId: adddoenca
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: doenca que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/Doenca'
+      responses:
+        '200':
+          description: sucesso! Nova doenca 
+          #schema:
+            #$ref: '#/definitions/doenca'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - doenca
+      summary: Actualiza uma doenca existente
+      description: ''
+      operationId: actualizardoenca
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: doenca que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/Doenca'
+      responses:
+        '200':
+          description: sucesso! doenca Actualizada
+          schema:
+            $ref: '#/definitions/Doenca'
+        '400':
+          description: Id invalido
+        '404':
+          description: doenca nao encontrada
+        '405':
+          description: Erro de Validacao
+  '/validacao"':
+    get:
+      tags:
+        - validacao
+      summary: Listagem de validacaos existentes
+      description: Listagem de validacaos existentes
+      operationId: listagemvalidacaos
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Validacao'
+  '/validacao/{id}/':
+    get:
+      tags:
+        - validacao
+      summary: Ver detalhes de validacao
+      description: ''
+      operationId: vervalidacao
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da validacao
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/Validacao'
+  /validacao:
+    post:
+      tags:
+        - validacao
+      summary: Adiciona nova validacao
+      description: ''
+      operationId: addvalidacao
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: validacao que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/Validacao'
+      responses:
+        '200':
+          description: sucesso! Nova validacao 
+          schema:
+            $ref: '#/definitions/Validacao'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - validacao
+      summary: Actualiza uma validacao existente
+      description: ''
+      operationId: actualizarvalidacao
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: validacao que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/Validacao'
+      responses:
+        '200':
+          description: sucesso! validacao Actualizada
+          schema:
+            $ref: '#/definitions/Validacao'
+        '400':
+          description: Id invalido
+        '404':
+          description: validacao nao encontrada
+        '405':
+          description: Erro de Validacao
+  '/tratamento"':
+    get:
+      tags:
+        - tratamento
+      summary: Listagem de tratamentos existentes
+      description: Listagem de tratamentos existentes
+      operationId: listagemtratamentos
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Tratamento'
+  '/tratamento/{id}/':
+    get:
+      tags:
+        - tratamento
+      summary: Ver detalhes de tratamento
+      description: ''
+      operationId: vertratamento
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da tratamento
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/Tratamento'
+  /tratamento:
+    post:
+      tags:
+        - tratamento
+      summary: Adiciona nova tratamento
+      description: ''
+      operationId: addtratamento
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: tratamento que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/Tratamento'
+      responses:
+        '200':
+          description: sucesso! Nova tratamento 
+          schema:
+            $ref: '#/definitions/Tratamento'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - tratamento
+      summary: Actualiza uma tratamento existente
+      description: ''
+      operationId: actualizartratamento
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: tratamento que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/Tratamento'
+      responses:
+        '200':
+          description: sucesso! tratamento Actualizada
+          schema:
+            $ref: '#/definitions/Tratamento'
+        '400':
+          description: Id invalido
+        '404':
+          description: tratamento nao encontrada
+        '405':
+          description: Erro de Validacao
+  '/localizacao"':
+    get:
+      tags:
+        - localizacao
+      summary: Listagem de localizacaos existentes
+      description: Listagem de localizacaos existentes
+      operationId: listagemlocalizacaos
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Localizacao'
+  '/localizacao/{id}/':
+    get:
+      tags:
+        - localizacao
+      summary: Ver detalhes de localizacao
+      description: ''
+      operationId: verlocalizacao
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da localizacao
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/Localizacao'
+  /localizacao:
+    post:
+      tags:
+        - localizacao
+      summary: Adiciona nova localizacao
+      description: ''
+      operationId: addlocalizacao
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: localizacao que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/Localizacao'
+      responses:
+        '200':
+          description: sucesso! Nova localizacao 
+          schema:
+            $ref: '#/definitions/Localizacao'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - localizacao
+      summary: Actualiza uma localizacao existente
+      description: ''
+      operationId: actualizarlocalizacao
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: localizacao que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/Localizacao'
+      responses:
+        '200':
+          description: sucesso! localizacao Actualizada
+          schema:
+            $ref: '#/definitions/Localizacao'
+        '400':
+          description: Id invalido
+        '404':
+          description: localizacao nao encontrada
+        '405':
+          description: Erro de Validacao
+  '/faixaEtaria"':
+    get:
+      tags:
+        - faixaEtaria
+      summary: Listagem de faixaEtarias existentes
+      description: Listagem de faixaEtarias existentes
+      operationId: listagemfaixaEtarias
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/FaixaEtaria'
+  '/faixaEtaria/{id}/':
+    get:
+      tags:
+        - faixaEtaria
+      summary: Ver detalhes de faixaEtaria
+      description: ''
+      operationId: verfaixaEtaria
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da faixaEtaria
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/FaixaEtaria'
+  /faixaEtaria:
+    post:
+      tags:
+        - faixaEtaria
+      summary: Adiciona nova faixaEtaria
+      description: ''
+      operationId: addfaixaEtaria
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: faixaEtaria que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/FaixaEtaria'
+      responses:
+        '200':
+          description: sucesso! Nova faixaEtaria 
+          schema:
+            $ref: '#/definitions/FaixaEtaria'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - faixaEtaria
+      summary: Actualiza uma faixaEtaria existente
+      description: ''
+      operationId: actualizarfaixaEtaria
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: faixaEtaria que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/FaixaEtaria'
+      responses:
+        '200':
+          description: sucesso! faixaEtaria Actualizada
+          schema:
+            $ref: '#/definitions/FaixaEtaria'
+        '400':
+          description: Id invalido
+        '404':
+          description: faixaEtaria nao encontrada
+        '405':
+          description: Erro de Validacao
+  '/via"':
+    get:
+      tags:
+        - via
+      summary: Listagem de vias existentes
+      description: Listagem de vias existentes
+      operationId: listagemvias
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Via'
+  '/via/{id}/':
+    get:
+      tags:
+        - via
+      summary: Ver detalhes de via
+      description: ''
+      operationId: vervia
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da via
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/Via'
+  /via:
+    post:
+      tags:
+        - via
+      summary: Adiciona nova via
+      description: ''
+      operationId: addvia
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: via que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/Via'
+      responses:
+        '200':
+          description: sucesso! Nova via 
+          schema:
+            $ref: '#/definitions/Via'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - via
+      summary: Actualiza uma via existente
+      description: ''
+      operationId: actualizarvia
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: via que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/Via'
+      responses:
+        '200':
+          description: sucesso! Via Actualizada
+          schema:
+            $ref: '#/definitions/Via'
+        '400':
+          description: Id invalido
+        '404':
+          description: via nao encontrada
+        '405':
+          description: Erro de Validacao
+  '/partePlanta"':
+    get:
+      tags:
+        - partePlanta
+      summary: Listagem de partePlantas existentes
+      description: Listagem de partePlantas existentes
+      operationId: listagempartePlantas
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PartePlanta'
+  '/partePlanta/{id}/':
+    get:
+      tags:
+        - partePlanta
+      summary: Ver detalhes de partePlanta
+      description: ''
+      operationId: verpartePlanta
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID da partePlanta
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description:  sucesso
+          schema:
+            $ref: '#/definitions/PartePlanta'
+  /partePlanta:
+    post:
+      tags:
+        - partePlanta
+      summary: Adiciona nova partePlanta
+      description: ''
+      operationId: addpartePlanta
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: partePlanta que deseja ser adicionada
+          required: true
+          schema:
+            $ref: '#/definitions/PartePlanta'
+      responses:
+        '200':
+          description: sucesso! Nova partePlanta 
+          schema:
+            $ref: '#/definitions/PartePlanta'
+        '405':
+          description: Entrada Invalida
+    put:
+      tags:
+        - partePlanta
+      summary: Actualiza uma partePlanta existente
+      description: ''
+      operationId: actualizarpartePlanta
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: partePlanta que precisa ser actualizada
+          required: true
+          schema:
+            $ref: '#/definitions/PartePlanta'
+      responses:
+        '200':
+          description: sucesso! partePlanta Actualizada
+          schema:
+            $ref: '#/definitions/PartePlanta'
+        '400':
+          description: Id invalido
+        '404':
+          description: partePlanta nao encontrada
+        '405':
+          description: Erro de Validacao
+definitions:
+  Planta:
+    type: object
+    required:
+      - id
+      - nome
+      - descricao
+      - foto
+      - propriedades
+    properties:
+      id:
+        type: integer
+        format: int64
+      nome:
+        type: string
+      descricao:
+        type: string
+      foto:
+        type: object
+      propriedades:
+        type: string
+  Tratamento:
+    type: object
+    required:
+      - id
+      - planta
+      - parte
+      - via
+      - modoUtilizacao
+    properties:
+      id:
+        type: integer
+        format: int64
+      planta:
+        type: object
+        $ref: '#/definitions/Planta'
+      parte:
+        type: object
+        $ref: '#/definitions/PartePlanta'
+      via:
+        type: object
+        $ref: '#/definitions/Via'
+      modoUtilizacao:
+        type: string
+  Localizacao:
+    type: object
+    required:
+      - id
+      - planta
+      - provincia
+      - distrito
+    properties:
+      id:
+        type: integer
+        format: int64
+      planta:
+        type: object
+        $ref: '#/definitions/Planta'
+      provincia:
+        type: object
+        $ref: '#/definitions/Provincia'
+      distrito:
+        type: object
+        $ref: '#/definitions/Distrito'
+  Doenca:
+    type: object
+    required:
+      - id
+      - nome
+      - descricao
+    properties:
+      id:
+        type: integer
+        format: int64
+      nome:
+        type: string
+      descricao:
+        type: string
+  Validacao:
+    type: object
+    required:
+      - id
+      - planta
+      - tratamento
+      - comentario
+      - deAcordo
+    properties:
+      id:
+        type: integer
+        format: int64
+      planta:
+        type: object
+        $ref: '#/definitions/Planta'
+      tratamento:
+        type: object
+        $ref: '#/definitions/Tratamento'
+      comentario:
+        type: string
+      deAcordo:
+        type: boolean
+  PartePlanta:
+    type: object
+    required:
+      - id
+      - descricao
+    properties:
+      id:
+        type: integer
+        format: int64
+      descricao:
+        type: string
+  Via:
+    type: object
+    required:
+      - id
+      - descricao
+    properties:
+      id:
+        type: integer
+        format: int64
+      descricao:
+        type: string        
+  FaixaEtaria:
+    type: object
+    required:
+      - id
+      - descricao
+    properties:
+      id:
+        type: integer
+        format: int64
+      descricao:
+        type: string               
+  Provincia:
+    type: object
+    required:
+      - id
+      - nome
+    properties:
+      id:
+        type: integer
+        format: int64
+      descricao:
+        type: string                       
+  Distrito:
+    type: object
+    required:
+      - id
+      - nome
+    properties:
+      id:
+        type: integer
+        format: int64
+      descricao:
+        type: string                               

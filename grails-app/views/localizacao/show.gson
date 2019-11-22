@@ -1,0 +1,7 @@
+import rony.ebotanica.Localizacao
+
+model {
+	Localizacao localizacao
+}
+
+json tmpl.localizacao(localizacao)

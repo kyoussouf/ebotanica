@@ -1,0 +1,8 @@
+import rony.ebotanica.Localizacao
+
+model {
+	Iterable<Localizacao> localizacaoList
+}
+
+json tmpl.localizacao(localizacaoList ?: [])
+

@@ -1,0 +1,7 @@
+import rony.ebotanica.Tratamento
+
+model {
+	Tratamento tratamento
+}
+
+json tmpl.tratamento(tratamento)

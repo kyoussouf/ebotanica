@@ -1,0 +1,8 @@
+import rony.ebotanica.Doenca
+
+model {
+	Iterable<Doenca> doencaList
+}
+
+json tmpl.doenca(doencaList ?: [])
+

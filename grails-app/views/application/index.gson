@@ -1,0 +1,16 @@
+import grails.core.*
+import grails.util.*
+import grails.plugins.*
+import org.grails.core.artefact.*
+
+model {
+	GrailsApplication grailsApplication	
+	GrailsPluginManager pluginManager
+}
+
+json {
+	message "E-Botanica endPoints!"
+    api grailsApplication.getArtefacts(ControllerArtefactHandler.TYPE), { GrailsClass c ->
+        endpoint '/' + c.logicalPropertyName
+    }
+}

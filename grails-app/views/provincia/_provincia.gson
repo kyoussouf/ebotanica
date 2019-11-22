@@ -1,0 +1,7 @@
+import rony.ebotanica.lk.geo.Provincia
+
+model {
+	Provincia provincia
+}
+
+json g.render(provincia, [resolveTemplate: false])

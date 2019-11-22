@@ -1,0 +1,7 @@
+import rony.ebotanica.Validacao
+
+model {
+	Validacao validacao
+}
+
+json g.render(validacao, [resolveTemplate: false])

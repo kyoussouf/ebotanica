@@ -1,0 +1,7 @@
+import rony.ebotanica.Tratamento
+
+model {
+	Tratamento tratamento
+}
+
+json g.render(tratamento, [resolveTemplate: false])

@@ -1,0 +1,7 @@
+import rony.ebotanica.lk.PartePlanta
+
+model {
+	PartePlanta partePlanta
+}
+
+json tmpl.partePlanta(partePlanta)

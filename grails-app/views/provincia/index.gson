@@ -1,0 +1,8 @@
+import rony.ebotanica.lk.geo.Provincia
+
+model {
+	Iterable<Provincia> provinciaList
+}
+
+json tmpl.provincia(provinciaList ?: [])
+

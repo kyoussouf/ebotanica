@@ -1,0 +1,7 @@
+import rony.ebotanica.lk.geo.Distrito
+
+model {
+	Distrito distrito
+}
+
+json tmpl.distrito(distrito)

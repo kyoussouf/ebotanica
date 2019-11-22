@@ -1,0 +1,16 @@
+Thumbs.db
+.DS_Store
+.gradle
+build/
+out/
+.idea
+*.iml
+*.ipr
+*.iws
+cloudDetails.txt
+cfLog.log
+controllers.bat
+domain.bat
+.project
+.settings
+.classpath
